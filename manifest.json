@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Prime video subtitle definer using GPT",
+  "version": "1.0",
+  "description": "Select the subtitle sentence by searching an element in the page and define a term in it using GPT-3",
+  "permissions": ["clipboardWrite", "activeTab", "scripting"],
+  "host_permissions": [
+    "*://*.openai.com/*",
+    "*://*.primevideo.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.openai.com/*",
+        "*://chatgpt.com/*",
+        "*://*.primevideo.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
+
